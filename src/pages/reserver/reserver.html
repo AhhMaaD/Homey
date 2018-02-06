@@ -1,0 +1,80 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Reserver un logement</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+
+
+</ion-header>
+
+
+
+
+<ion-content padding class="background">
+    <form [formGroup]="Form" >
+
+        <ion-list>
+
+
+            <ion-item >
+                <ion-label floating>Votre Email :</ion-label>
+                <ion-input type="email"   value="{{user_proprite?.mail}} " formControlName="to"></ion-input>
+            </ion-item>
+            <div no-lines *ngIf="Form.get('to').dirty 
+       || Form.get('to').hasError('required') 
+       || Form.get('to').hasError('email')
+        && Form.get('to').touched">
+
+                <p class="error" *ngIf="Form.get('to').hasError('email') && Form.get('to').touched">
+                    Veuillez entrer un email valide ex:loginForm@homey.fr
+                </p>
+                <p class="error" *ngIf="Form.get('to').hasError('required') && Form.get('to').touched">
+                   votre email est requis
+                </p>
+            </div> 
+            <ion-item>
+                <ion-label floating>Votre nom et prenom:</ion-label>
+                <ion-input type="text" value="{{user_valide.userName}}" formControlName="nomUser"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Votre Téléphone:</ion-label>
+                <ion-input type="number"  value="{{user_valide.phone}}" formControlName="phone"></ion-input>
+            </ion-item>
+  
+            <div no-lines *ngIf="
+            Form.get('phone').hasError('required') 
+            || Form.get('phone').hasError('minLength')
+             && Form.get('phone').touched">
+     
+                     <p class="error" *ngIf="Form.get('phone').hasError('minLength') && Form.get('phone').touched">
+                         Veuillez entrer un numero de téléphone valide ex: 0651211011
+                     </p>
+                     <p class="error" *ngIf="Form.get('phone').hasError('required') && Form.get('phone').touched">
+                         Votre téléphone  est requis
+                     </p>
+                 </div> 
+
+
+
+
+            <ion-item>
+                <ion-label floating>Subjet:</ion-label>
+                <ion-input type="string" formControlName="subject"></ion-input>
+            </ion-item>
+
+
+            <ion-item >
+                <ion-label floating>Message:</ion-label>
+                <ion-textarea id="message" value="Bonjour,
+                J'ai un job Dating dans votre ville, et je voudrais être loger chez vous pendant deux jours, et je serai content de vous accueille chez moi quand vous aurez besoin.
+                Coedialemenr." formControlName="message"></ion-textarea>
+            </ion-item>
+
+
+            <button ion-button class="btn" text-center block [disabled]="!Form.valid" (ngSubmit)="sendMessage()" >Envoyer votre demande</button>
+            <button ion-button class="btn" text-center block (click)="veraccueil()"  >Anuule</button>
+        </ion-list>
+    </form>
+</ion-content>  

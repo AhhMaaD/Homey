@@ -1,0 +1,13 @@
+{
+  "globalDependencies": {
+    "cordova-plugin-camera": "registry:dt/cordova-plugin-camera#0.0.0+20160819210047",
+    "cordova-plugin-device": "registry:dt/cordova-plugin-device#0.0.0+20160919075538",
+    "cordova-plugin-splashscreen": "registry:dt/cordova-plugin-splashscreen#0.0.0+20160819210047",
+    "firebase": "registry:dt/firebase#2.4.1+20160510002910",
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111",
+    "swiper": "registry:dt/swiper#3.4.0+20170120190008"
+  },
+  "globalDevDependencies": {
+    "ionic": "registry:dt/ionic#0.0.0+20170112164458"
+  }
+}

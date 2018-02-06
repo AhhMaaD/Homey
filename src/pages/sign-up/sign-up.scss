@@ -1,0 +1,39 @@
+page-sign-up {
+    .error {
+        color: red;
+        font-weight: 900;
+        display: flex;
+        text-align: left;
+    }
+    .background {
+        background-image: url(../assets/imgs/logo.png);
+        background-size: cover;
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .item {
+        margin-bottom: 10px;
+        background: rgba(255, 127, 80, 0.253);
+        border: medium none;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px rgba(131, 52, 52, 0.5);
+        border- .text-input,
+        {
+            color: rgb(19, 3, 3);
+        }
+    }
+    .bar-button::after {
+        background-image: url(../assets/imgs/back.png);
+        background-size: 65px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 57px;
+        height: 55px;
+        left: -15px;
+        top: -9px;
+    }
+    .ion-md-arrow-back:before {
+        display: none;
+    }
+}

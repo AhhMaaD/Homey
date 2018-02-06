@@ -1,0 +1,111 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Votre Profil</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+    <div class="popup-menu">
+        <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
+        <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"></div>
+        <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
+            <div *ngIf="hasLogement()" class="popup-menu-item" (click)="verPageModifierLogement()">
+                <ion-icon name="home"></ion-icon>
+                <span>Modifer Votre Logement</span>
+            </div>
+            <div class="popup-menu-item" (click)="verPageModifierProfile()">
+                <ion-icon name="person"></ion-icon>
+                <span>Modifier votre profile</span>
+            </div>
+            <div class="popup-menu-item" (click)="signOut()">
+                <ion-icon name="log-out" md="md-log-out"></ion-icon>
+                <span>Déconnecter</span>
+            </div>
+            <div class="popup-menu-item" (click)="supprimerUser()">
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                <span>Supprimer votre profille</span>
+            </div>
+            <div *ngIf="hasLogement()" class="popup-menu-item" (click)="supprimerLogement()">
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                <span>Supprimer votre logement</span>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</ion-header>
+
+
+
+<ion-content class="background" padding>
+
+
+
+    <div class="card">
+
+        <img id="imgProfil" src="{{user_valid?.photoUser}}" alt="John" style="width:100%">
+
+
+        <p class="title">{{user_valid?.userName}}<br>{{user_valid?.adresse}},{{user_valid?.ville}}, {{user_valid?.codePostal}}
+
+        </p>
+        <p>{{user_valid?.userSex}}</p>
+
+        <p><button class="btn" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}" ion-button>Panneaux de configuration</button></p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr />
+    <ion-title>Mon logement</ion-title>
+    <hr />
+    <br>
+    <br>
+    <br>    
+    <div *ngIf="!hasLogement()">
+        <p><button class="btn" ion-button (click)="verAjouterLogement()">Ajouter un logement</button></p>
+    </div>
+    <ion-card *ngIf="hasLogement()">
+
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="{{user_valid?.photoUser}}">
+            </ion-avatar>
+
+            <h2>{{user_valid.userName}}</h2>
+            <p>Date de Naissance :{{ user_valid?.dateDeNaissance| date}}</p>
+        </ion-item>
+
+
+
+        <ion-slides loop="true" style="background-color: black">
+
+            <ion-slide *ngFor="let image of imagesLogement">
+
+                <img ng-if="image" data-src="{{image}}">
+
+
+            </ion-slide>
+        </ion-slides>
+
+        <ion-card-content>
+            <p>{{logement_valid?.adresse}}, {{logement_valid?.ville}}, {{logement_valid?.codePostal}}</p>
+        </ion-card-content>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small (click)="verLogementProfil()">
+            <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+            <div>Savoir plus</div>
+        </button>
+            </ion-col>
+
+        </ion-row>
+
+    </ion-card>
+</ion-content>

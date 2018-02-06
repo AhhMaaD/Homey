@@ -1,0 +1,80 @@
+<ion-content class="background">
+    <img height=230px src="./assets/imgs/logo.png" alt="HOMEY">
+    <ion-card>
+
+        <ion-card-content>
+
+
+            <form (ngSubmit)="signIn()" [formGroup]="loginForm" role="form">
+                <ion-list no-line>
+                    <ion-item>
+                        <ion-label floating>E-mail</ion-label>
+                        <ion-input type="email" required value="a@a.aa" formControlName="mail"> </ion-input>
+                    </ion-item>
+
+                    <div no-lines *ngIf="loginForm.get('mail').dirty
+                     || loginForm.get('mail').hasError('required')
+                     || loginForm.get('mail').hasError('email')
+                      && loginForm.get('mail').touched">
+
+                        <p class="error" *ngIf="loginForm.get('mail').hasError('required') && loginForm.get('mail').touched">
+                            email est requis
+                        </p>
+                        <p class="error" *ngIf="loginForm.get('mail').hasError('email') && loginForm.get('mail').touched">
+                            Veuillez entrer un email valide ex:loginForm@homey.fr
+                        </p>
+                    </div>
+
+
+
+                    <ion-item>
+                        <ion-label floating>Mot de passe</ion-label>
+                        <ion-input type="password" required value="123456789" formControlName="pass"> </ion-input>
+
+                    </ion-item>
+
+                    <div no-lines *ngIf=" loginForm.get('pass').hasError('required')
+                    || loginForm.get('pass').hasError('minlength')
+                    || loginForm.get('pass').hasError('maxlength')
+                    && loginForm.get('pass').touched">
+
+
+
+                        <p class="error" *ngIf="loginForm.get('pass').hasError('required') && loginForm.get('mail').touched">
+                            Mot de passe requis
+                        </p>
+                        <p class="error" *ngIf="loginForm.get('pass').hasError('minlength') && loginForm.get('mail').touched">
+                            Veuillez entrer votre mot de passe au moin que 8 caractères
+                        </p>
+
+                        <p class="error" *ngIf="loginForm.get('pass').hasError('maxlength') && loginForm.get('mail').touched">
+                            Veuillez entrer votre mot de passe valide moin que 12 caractères
+                        </p>
+
+
+                    </div>
+
+
+
+
+
+
+
+                </ion-list>
+
+
+
+
+
+                <button class="btn " [disabled]="!loginForm.valid" ion-button block color="homey" role="button" type="submit">Entrer</button>
+
+
+            </form>
+            <button ion-button block color="facebok" (click)="faceBookPass()">
+              <ion-icon name="logo-facebook"></ion-icon>
+              Facebook</button>
+            <button ion-button outline (click)="recupererPass()">Oubliez votre login détail?</button>
+        </ion-card-content>
+    </ion-card>
+    <button class="bottom" ion-button clear full (click)="verSignUpPage()" color="light">Vous n'avez pas un compte Homey? Créez-le</button>
+</ion-content>

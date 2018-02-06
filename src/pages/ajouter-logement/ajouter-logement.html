@@ -1,0 +1,56 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Ajouter votre logement</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+
+
+</ion-header>
+
+
+
+<ion-content padding class="background">
+    <form [formGroup]="addLogForm" role="form">
+        <ion-item>
+            <ion-label floating>surface</ion-label>
+            <ion-input type="number" required formControlName="surfaceDELogement"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input type="text" required formControlName="descriptionDeLogement"></ion-input>
+        </ion-item>
+
+        <ion-item>
+
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter un photo numéro 1</button>
+        </ion-item>
+        <ion-item>
+
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter un photo numéro 2</button>
+        </ion-item>
+        <ion-item>
+
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter un photo numéro 3</button>
+        </ion-item>
+
+
+
+        <ion-item>
+            <ion-label floating>Ville</ion-label>
+            <ion-input type="text" required formControlName="ville"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Code Postal</ion-label>
+            <ion-input type="number" required formControlName="codePostal"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Adresse</ion-label>
+            <ion-input type="text" required formControlName="adresse"></ion-input>
+        </ion-item>
+
+        <button class="btn" ion-button full color="homey" [disabled]="!addLogForm.valid" (click)="creeLogement()" role="button" type="submit">Valider</button>
+    </form>
+</ion-content>

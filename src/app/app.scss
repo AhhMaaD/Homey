@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,79 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+#HomeyDance {
+    display: flex;
+    float: left;
+    flex-direction: row;
+    background: #FFAFBD;
+    background: linear-gradient(to right, #ffc3a0, #FFAFBD);
+    text-align: center;
+}
+
+.toolbar-title {
+    font-family: 'Times New Roman';
+    font-weight: bold !important;
+    background: #FFAFBD;
+    background: linear-gradient(to right, #ffc3a0, #FFAFBD);
+    text-align: center
+}
+
+.navHomey {
+    position: relative;
+    top: 15px;
+    border-radius: 15px;
+    width: 45px;
+    z-index: 1;
+    height: 45px;
+    min-height: auto !important;
+}
+
+#log_header {
+    width: 70px;
+    height: 70px;
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: rotateY(20deg);
+    }
+    to {
+        transform: rotateX(20deg);
+    }
+}
+
+.btn {
+    display: flex;
+    padding: 8px 20px 10px;
+    border: 1px solid rgb(31, 45, 77);
+    border-top-color: rgb(56, 83, 140);
+    border-bottom-color: rgb(21, 30, 51);
+    border-radius: 4px;
+    font: normal normal bold 14px/1 "Coda", Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    text-overflow: clip;
+    background: rgba(229, 113, 11, 0.71);
+    box-shadow: 0 1px 10px 1px rgb(92, 139, 238) inset, 0 1px 0 0 rgb(29, 44, 77), 0 6px 0 0 rgb(31, 48, 83), 0 8px 4px 1px rgb(17, 17, 17);
+    text-shadow: 0 -1px 1px rgb(30, 45, 77);
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: rgb(189, 126, 68);
+    box-shadow: 0 0 20px 1px rgb(135, 173, 255) inset, 0 1px 0 0 rgb(29, 44, 77), 0 6px 0 0 rgb(31, 48, 83), 0 8px 4px 1px rgb(17, 17, 17);
+}
+
+.btn:active {
+    margin: 5px 0 10px;
+    box-shadow: 0 1px 10px 1px rgb(92, 139, 238) inset, 0 1px 0 0 rgb(29, 44, 77), 0 2px 0 0 rgb(31, 48, 83), 0 4px 3px 0 rgb(17, 17, 17);
+}
+
+.alert-md .alert-wrapper {
+    font-family: 'Times New Roman' !important;
+    font-weight: bold !important;
+    background: #FFAFBD !important;
+    background: linear-gradient(to right, #ffc3a0, #FFAFBD) !important;
+    text-align: center !important;
+    border-radius: 41px !important;
+}

@@ -1,0 +1,71 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Modifier votre<br> logement</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+
+
+</ion-header>
+
+
+
+<ion-content padding class="background">
+
+    <br>
+
+    <hr />
+    <ion-title>
+
+        <h1> Homey Admin</h1>
+        <p id="text"> Pour modifier votre logement <br> veuillez télécharger des photos récentes <br> de votre logement</p>
+
+    </ion-title>
+    <hr />
+    <br>
+
+
+
+    <form [formGroup]="addLogForm" role="form">
+        <ion-item>
+            <ion-label floating>surface</ion-label>
+            <ion-input type="number" value="{{logement_valide.surfaceDELogement}}" required formControlName="surfaceDELogement"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input type="text" value="{{logement_valide.descriptionDeLogement}}" required formControlName="descriptionDeLogement"></ion-input>
+        </ion-item>
+
+        <ion-item>
+
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter un photo numéro 1</button>
+        </ion-item>
+        <ion-item>
+
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter un photo numéro 2</button>
+        </ion-item>
+        <ion-item>
+
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter un photo numéro 3</button>
+        </ion-item>
+
+
+
+        <ion-item>
+            <ion-label floating>Ville</ion-label>
+            <ion-input type="text" value="{{logement_valide.ville}}" required formControlName="ville"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Code Postal</ion-label>
+            <ion-input type="number" value="{{logement_valide.codePostal}}" required formControlName="codePostal"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Adresse</ion-label>
+            <ion-input type="text" value="{{logement_valide.adresse}}" required formControlName="adresse"></ion-input>
+        </ion-item>
+
+        <button class="btn" ion-button full color="homey" [disabled]="!addLogForm.valid" (click)="ReCreeLogement() " role="button" type="submit">Valider</button>
+    </form>
+</ion-content>

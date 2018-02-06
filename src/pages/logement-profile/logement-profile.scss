@@ -1,0 +1,69 @@
+page-logement-profile {
+
+    ion-icon {  
+        margin-top: 40%;
+        font-size: 7em;
+    } 
+    h2 {
+        margin-top: 80% !important;
+        font-weight: bold;
+        font-size: 1em;
+    }
+    p {
+        width: 80%;
+        display: block; 
+        margin: 0 auto;
+        font-size: .9em;
+    }
+  
+ 
+    .background {
+        background-image: url(../assets/imgs/logo.png);
+        background-size: cover;
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .text{
+        z-index: 100 !important;
+        margin-bottom: -111px;
+    }
+    #img{ 
+        max-width: 100% !important;
+        max-height: 100% !important;
+        height: 81% !important;
+        position: absolute;
+        left: 0px; 
+        top: -45px;
+      
+        filter:progid:DXImageTransform.Microsoft.Glow(Color=#c0c0c0,Strength=8);
+  zoom: 1;
+       
+    } 
+    .sh{
+        box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7),
+        -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
+        filter:progid:DXImageTransform.Microsoft.Glow(Color=#c0c0c0,Strength=8);
+        zoom: 1;
+    }
+    .swiper-container {
+        height: 90%;
+    }
+    ion-slides {
+        display: inline;
+        height: 90%;
+    }
+    .bar-button::after {
+        background-image: url(../assets/imgs/back.png);
+        background-size: 65px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 49px;
+        height: 55px;
+        left: -11px;
+        top: -13px;
+    }
+    .ion-md-arrow-back:before {
+        display: none;
+    }
+}

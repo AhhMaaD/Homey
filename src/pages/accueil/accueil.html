@@ -1,0 +1,110 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Accueil</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+
+</ion-header>
+
+
+
+
+
+
+
+
+<ion-content padding class="background">
+    <ion-list>
+        <ion-item>
+            <ion-thumbnail item-start>
+                <img id="picUser" src="{{user_valid?.photoUser}}">
+            </ion-thumbnail>
+            <h2>{{user_valid?.userName}}</h2>
+            <p>{{user_valid?.ville}}, {{user_valid?.codePostal}}</p>
+
+            <button ion-button class="btn" item-end (click)="verProfil()"> Mon profil</button>
+        </ion-item>
+    </ion-list>
+
+
+    <ion-searchbar [showCancelButton]="shouldShowCancel" placeholder="Recherche par ville" (ionCancel)="onCancel($event)" autocapitalize="characters" (ionClear)="onCancel($event)" (ionInput)="getItems($event)"></ion-searchbar>
+
+
+    <div *ngIf="rechercherEstClick()">
+
+        <ion-card *ngFor="let logement of listLogementsParVille">
+
+            <ion-slides loop="true" style="background-color: black">
+
+                <ion-slide>
+                    <img data-src="{{logement?.photoLogement_1}}">
+
+                </ion-slide>
+                <ion-slide>
+                    <img data-src="{{logement?.photoLogement_2}}">
+
+                </ion-slide>
+                <ion-slide>
+                    <img data-src="{{logement?.photoLogement_3}}">
+
+                </ion-slide>
+            </ion-slides>
+
+            <ion-card-content>
+                <p>{{logement.adresse}}, {{logement.ville}}, {{logement.codePostal}}</p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button ion-button icon-left clear small (click)="verLogementProfil(logement)">
+                    <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+                    <div>Savoir plus</div>
+                </button>
+                </ion-col>
+
+            </ion-row>
+
+        </ion-card>
+    </div>
+
+    <div *ngIf="! rechercherEstClick()">
+
+        <ion-card *ngFor="let logement of listLogements">
+
+
+            <ion-slides loop="true" style="background-color: black">
+
+                <ion-slide>
+                    <img data-src="{{logement?.photoLogement_1}}">
+
+                </ion-slide>
+                <ion-slide>
+                    <img data-src="{{logement?.photoLogement_2}}">
+
+                </ion-slide>
+                <ion-slide>
+                    <img data-src="{{logement?.photoLogement_3}}">
+
+                </ion-slide>
+            </ion-slides>
+
+            <ion-card-content>
+                <p>{{logement.adresse}}, {{logement.ville}}, {{logement.codePostal}}</p>
+            </ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <button ion-button icon-left clear small (click)="verLogementProfil(logement)">
+                    <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+                    <div>Savoir plus</div>
+                </button>
+                </ion-col>
+
+            </ion-row>
+
+        </ion-card>
+    </div>
+
+</ion-content>

@@ -1,0 +1,95 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Créer votre <br>compte Homey</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+
+
+</ion-header>
+
+
+
+<ion-content padding class="background">
+    <form [formGroup]="signUpForm" role="form">
+        <ion-item>
+            <ion-label floating>Mail</ion-label>
+            <ion-input type="email" required formControlName="mail"></ion-input>
+        </ion-item>
+
+        <div no-lines *ngIf="signUpForm.get('mail').dirty 
+        || signUpForm.get('mail').hasError('required')
+        || signUpForm.get('mail').hasError('email')
+         && signUpForm.get('mail').touched">
+
+            <p class="error" *ngIf="signUpForm.get('mail').hasError('email') && signUpForm.get('mail').touched">
+                Veuillez entrer un email valide ex:loginForm@homey.fr
+            </p>
+            <p class="error" *ngIf="signUpForm.get('mail').hasError('required') && signUpForm.get('mail').touched">
+                email est requis
+            </p>
+        </div>
+        <ion-item>
+            <ion-label floating>Mot de pass</ion-label>
+            <ion-input type="password" required formControlName="passWord"></ion-input>
+        </ion-item>
+        <div no-lines *ngIf="signUpForm.get('passWord').hasError('required')
+        || signUpForm.get('passWord').hasError('minlength')
+        || signUpForm.get('passWord').hasError('maxlength')
+        && signUpForm.get('passWord').touched
+        ">
+            <p class="error" *ngIf="signUpForm.get('passWord').hasError('required') && signUpForm.get('passWord').touched">
+                Mote de passe est requis
+            </p>
+            <p class="error" *ngIf="signUpForm.get('passWord').hasError('minlength')  && signUpForm.get('passWord').touched">
+                Veuillez entrer un mot de passe valid avec au moins 8 caractères
+            </p>
+            <p class="error" *ngIf="signUpForm.get('passWord').hasError('maxlength')  && signUpForm.get('passWord').touched">
+                Veuillez entrer un mot de passe valid avec moins que 12 caractères
+            </p>
+
+        </div>
+
+        <ion-item>
+            <ion-label floating>Nom et pronom</ion-label>
+            <ion-input type="text" required formControlName="userName"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <button ion-button class="btn" full color="homey" (click)="selectPhoto()">Ajouter votre photo</button>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Date De Naissance</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" formControlName="dateDeNaissance"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Téléphone</ion-label>
+            <ion-input type="number" required formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Ville</ion-label>
+            <ion-input type="text" required formControlName="ville"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Code Postal</ion-label>
+            <ion-input type="number" required formControlName="codePostal"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Adresse</ion-label>
+            <ion-input type="text" required formControlName="adresse"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Sex</ion-label>
+            <ion-select formControlName="userSex">
+                <ion-option value="Homme">Homme</ion-option>
+                <ion-option value="Femme">Femme</ion-option>
+            </ion-select>
+        </ion-item>
+
+
+
+        <button class="btn" ion-button full color="homey" [disabled]="!signUpForm.valid" (click)="signUp()" role="button" type="submit">Créer votre compte</button>
+    </form>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header id="HomeyDance">
+
+    <ion-navbar class="navHomey">
+
+    </ion-navbar>
+    <ion-title>Reserver un logement</ion-title>
+    <img id="log_header" src="./assets/imgs/logo.png" alt="log">
+
+
+</ion-header>
+
+
+
+
+
+
+
+
+<ion-content padding class="background">
+    <ion-slides  loop="true" pager effect="cube">
+       
+        <ion-slide *ngFor="let img of  imagesLogement">
+            <div class="sh">
+                    <img id="img"   (click)="zoomImage(img)" data-src="{{img}}">
+                </div>
+            <div class="text">
+                <h2>{{logement_valid.descriptionDeLogement}} </h2>
+                
+
+                <p> Surface :{{logement_valid.surfaceDELogement}}<br>
+                    {{logement_valid.adresse }}, {{logement_valid.codePostal}}, {{logement_valid.ville}}
+                    <br/>Date d'ajouter: {{logement_valid.dateDeAjoute}}</p>
+
+
+                
+
+            </div>
+
+           
+        
+        </ion-slide>
+        
+    </ion-slides>
+    <ion-item *ngIf="!hasLogement()">
+        <p *ngIf="!logementDisponibilite()"> Ce logement n'est pas disponible</p>
+            <button ion-button full class="btn" [disabled]="!logementDisponibilite()" (click)="reserver()" >Réserver le logement</button>
+        </ion-item>
+
+        <ion-item *ngIf="hasLogement()">
+              
+                <ion-label floating>Disponibilité</ion-label>
+                
+                <ion-select  [(ngModel)]="disponibilite"  >
+                    <ion-option value="true">disponible</ion-option>
+                    <ion-option value="false">pas disponible</ion-option>
+                </ion-select>
+       
+  
+        </ion-item>
+       
+        <button  *ngIf="hasLogement()" ion-button full class="btn"  (click)="modifierDisponibilite()" > Vlider</button>
+</ion-content>
