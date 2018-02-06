@@ -122,21 +122,14 @@ export class ReserverPage {
       let al = this.alertCtrl.create({
         title: "Contrat de hébergement",
         subTitle: `Selon la charte juridique de Homey, vous êtes hebergé à titre gratuit, et vous engagez à respecter le contrat entre vous et le propritaire.
-        Selon le contract le propritaire aura le droit d'être heberger chez vous quand il aura besoin, et la période d'herbergement sera equivalent à votre période de loger chez lui.
-        Il est possible que nous modifiions la présente Charte de confidentialité en temps utile et vous conseillons donc de consulter cette page régulièrement afin de rester informé.`,
-        inputs: [
-          {
-
-            placeholder: `${this.user_valide.userName}`
-          }
-        ],
+        Selon le contract le propritaire aura le droit d'être heberger chez vous quand il aura besoin, et la période d'herbergement sera équivalent à votre période de loger chez lui.
+        Il est possible que nous modifiions la présente Charte de confidentialité en temps utile et vous conseillons donc de consulter cette page régulièrement.`,
+       
         buttons: [
-
           {
-            text: "Lu et conformer et je signe",
-            handler: data => {
-              console.log(data);
-            }
+            text: `Lu et conformer et je signe
+                  ${this.user_valide.userName}`,
+            handler: data => {}
           }
         ]
       });

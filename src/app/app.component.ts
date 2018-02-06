@@ -1,11 +1,12 @@
 import { Component, ViewChild } from "@angular/core";
 import { Platform, NavController } from "ionic-angular";
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 import * as firebase from "firebase";
-import { LoginPage } from './../pages/login/login';
-import { AccueilPage } from './../pages/accueil/accueil';
-import { FireBaseDataBaseProvider } from './../providers/fire-base-data-base/fire-base-data-base';
+import { LoginPage } from "./../pages/login/login";
+import { AccueilPage } from "./../pages/accueil/accueil";
+import { FireBaseDataBaseProvider } from "./../providers/fire-base-data-base/fire-base-data-base";
+import { ProfilPage } from "./../pages/profil/profil";
 @Component({
   templateUrl: "app.html"
 })
@@ -26,14 +27,15 @@ export class MyApp {
       splashScreen.hide();
     });
 
-  firebase.auth().onAuthStateChanged(userState => {
-    console.log(userState);
-    if (userState) {
-      this.nav.setRoot(AccueilPage);
-    } else {
-      this.nav.setRoot(LoginPage);
-    }
-  });
+    
+      firebase.auth().onAuthStateChanged(userState => {
+        console.log(userState);
+        if (userState) {
+          this.nav.setRoot(AccueilPage);
+        } else {
+          this.nav.setRoot(LoginPage);
+        }
+      });
+    
   }
 }
-

@@ -1,40 +1,11 @@
 <ion-header id="HomeyDance">
 
-    <ion-navbar class="navHomey">
+    <ion-navbar #myNav class="navHomey">
 
     </ion-navbar>
     <ion-title>Votre Profil</ion-title>
     <img id="log_header" src="./assets/imgs/logo.png" alt="log">
-    <div class="popup-menu">
-        <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
-        <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"></div>
-        <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
-            <div *ngIf="hasLogement()" class="popup-menu-item" (click)="verPageModifierLogement()">
-                <ion-icon name="home"></ion-icon>
-                <span>Modifer Votre Logement</span>
-            </div>
-            <div class="popup-menu-item" (click)="verPageModifierProfile()">
-                <ion-icon name="person"></ion-icon>
-                <span>Modifier votre profile</span>
-            </div>
-            <div class="popup-menu-item" (click)="signOut()">
-                <ion-icon name="log-out" md="md-log-out"></ion-icon>
-                <span>Déconnecter</span>
-            </div>
-            <div class="popup-menu-item" (click)="supprimerUser()">
-                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-                <span>Supprimer votre profille</span>
-            </div>
-            <div *ngIf="hasLogement()" class="popup-menu-item" (click)="supprimerLogement()">
-                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-                <span>Supprimer votre logement</span>
-            </div>
 
-        </div>
-
-
-
-    </div>
 
 </ion-header>
 
@@ -54,19 +25,45 @@
         </p>
         <p>{{user_valid?.userSex}}</p>
 
-        <p><button class="btn" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}" ion-button>Panneaux de configuration</button></p>
+
+
+
+
+
+
+
+        <div class="popup-menu">
+            <div class="panel">
+                <div *ngIf="hasLogement()" class="item_9" (click)="verPageModifierLogement()">
+                    <ion-icon name="home"></ion-icon>
+                    <p>Modifer Votre Logement</p>
+                </div>
+                <div class="item_9" (click)="verPageModifierProfile()">
+                    <ion-icon name="person"></ion-icon>
+                    <p>Modifier votre profile</p>
+                </div>
+                <div class="item_9" (click)="signOut()">
+                    <ion-icon name="log-out" md="md-log-out"></ion-icon>
+                    <p>Déconnecter</p>
+                </div>
+                <div class="item_9" (click)="supprimerUser()">
+                    <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                    <p>Supprimer votre profille</p>
+                </div>
+                <div class="item_9" *ngIf="hasLogement()" (click)="supprimerLogement()">
+                    <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                    <p>Supprimer votre logement</p>
+                </div>
+
+            </div>
+        </div>
+
+
+
     </div>
 
+
     <br>
-    <br>
-    <br>
-    <br>
-    <hr />
-    <ion-title>Mon logement</ion-title>
-    <hr />
-    <br>
-    <br>
-    <br>    
     <div *ngIf="!hasLogement()">
         <p><button class="btn" ion-button (click)="verAjouterLogement()">Ajouter un logement</button></p>
     </div>
@@ -108,4 +105,5 @@
         </ion-row>
 
     </ion-card>
+
 </ion-content>

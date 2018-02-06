@@ -44,6 +44,7 @@ export class ProfilPage {
     return await this.fireBaseDataBase.getLogement(this.user_valid.userLogement);
   }
   togglePopupMenu() {
+    console.log(" togglePopupMenu() ");
     return (this.openMenu = !this.openMenu);
   }
 

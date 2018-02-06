@@ -40,7 +40,19 @@ page-reserver {
         height: 300px !important;
         min-height: 300px !important;
     }
-    ion-alert.alert-top {
-        height: 106% !important;
+    .alert-md .alert-wrapper {
+        font-family: 'Times New Roman' !important;
+        font-weight: bold !important;
+        background: #FFAFBD !important;
+        background: linear-gradient(to right, #ffc3a0, #FFAFBD) !important;
+        text-align: center !important;
+        border-radius: 41px !important;
+        height: 100% !important;
+        max-height: 100% !important;
+        margin-top: 0px;
+    }
+    ion-alert .alert-md .alert-wrapper {
+        height: 100% !important;
+        max-height: 100% !important;
     }
 }
