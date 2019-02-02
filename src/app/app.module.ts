@@ -28,9 +28,9 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { EmailComposer } from '@ionic-native/email-composer';
 //firebase
 firebase.initializeApp({
-  apiKey: "AIzaSyAK5yDm7-hmNVVBtIZw6TMUta8r5xCQBqg",
-  authDomain: "homey-72.firebaseapp.com",
-  databaseURL: "https://homey-72.firebaseio.com", 
+  apiKey: "*******************************",
+  authDomain: "***********************",
+  databaseURL: "********************", 
   projectId: "homey-72",
   storageBucket: "homey-72.appspot.com",
   messagingSenderId: "1030408890214"
